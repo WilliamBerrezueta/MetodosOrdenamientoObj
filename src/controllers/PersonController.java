@@ -32,4 +32,45 @@ public class PersonController {
 
         }
     }
+    //metodo ordena las personas segun el promedio de sus notas con seleccion
+    public void sortPersonByPromedio(Person[] personas) {
+        for (int i = 0; i < personas.length; i++) {
+            int indice = i;
+            for (int j = i + 1; j < personas.length; j++) {
+                //comparacion para actualizar el inidce
+                if (personas[j].getPromedio() < personas[indice].getPromedio()) {
+                    indice = j;
+                }
+            }
+            Person aux = personas[i];
+            personas[i] = personas[indice];
+            personas[indice] = aux;
+        }
+    }
+    // ordenar el arreglo de personas por un valor de su nombre
+    //el valor del nombre sera la cantidad de letras del nombre
+    //donde la vocales valen 5
+    //consonantes valen el valor de de la edad
+    //ej: juan 20        ej; Ana 80
+    //20+5+5+20= 50      80+5+5= 90
+    public void sortPersonByNameValue(Person[] personas){
+        
+        for (int i = 0; i < personas.length; i++) {
+            int indice = i;
+            for (int j = i + 1; j < personas.length; j++) {
+                //comparacion para actualizar el inidce
+                if (personas[j].valueName() < personas[indice].valueName()) {
+                    indice = j;
+                }
+            }
+            Person aux = personas[i];
+            personas[i] = personas[indice];
+            personas[indice] = aux;
+        }
+        
+
+
+
+    }   
 }
+
